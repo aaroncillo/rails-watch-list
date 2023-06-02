@@ -1,9 +1,28 @@
-<h1>Listas</h1>
+<div class="banner">
+  <div class="container">
+    <h1>Disfruta del mejor cine en tu ciudad</h1>
+  </div>
+</div>
 
-<div class="container">
-  <% @lists.each do |list| %>
-    <ul>
-      <li><%= link_to(list.name, list_path(list.id)) %></li>
-    </ul>
-  <% end %>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-6">
+      <h4>My lists</h4>
+    </div>
+    <div class="col-6 text-end">
+      <%= link_to "Create a movie list", new_list_path, class:"btn btn-success btn-sm" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="col-4 mb-3">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
+        <%= list.name %>
+      </div>
+
+      </div>
+    <% end %>
+  </div>
 </div>
